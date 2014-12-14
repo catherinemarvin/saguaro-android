@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Saguaro</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="total_money_message">$13.37</string>
+    <string name="button_submit">Give me some Taco Bell</string>
 
 </resources>
