@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.util.Log;
+import android.widget.EditText;
+
 import java.util.List;
 
 import net.kevinhwang.saguaro.models.Food;
@@ -62,10 +64,14 @@ public class MainActivity extends Activity {
     public void submit(View view) {
         Log.v(TAG, "Submit!");
         SaguaroApi api = SaguaroApiClient.getClient();
-        api.getMeal(500, "Taco Bell", new Callback<List<Food>>() {
+
+        EditText moneyField = (EditText) findViewById(R.id.total_money);
+        Integer money = Integer.parseInt(moneyField.getText().toString());
+        api.getMeal(money, "Taco Bell", new Callback<List<Food>>() {
             @Override
             public void success(List<Food> food, Response response) {
                 Log.v(TAG, "Successful response!");
+                Log.v(TAG, food.toString());
             }
 
             @Override
