@@ -15,7 +15,6 @@ import retrofit.http.Query;
 
 public interface SaguaroApi {
 
-    @FormUrlEncoded
     @GET("/meal")
-    void getMeal(@Field("money") Integer money, @Field("source") String source, Callback<MealResponse> callback);
+    void getMeal(@Query("money") Integer money, @Query("source") String source, Callback<MealResponse> callback);
 }

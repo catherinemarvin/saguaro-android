@@ -12,6 +12,14 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.util.Log;
 
+import net.kevinhwang.saguaro.api.MealResponse;
+import net.kevinhwang.saguaro.api.SaguaroApi;
+import net.kevinhwang.saguaro.api.SaguaroApiClient;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 
 public class MainActivity extends Activity {
     private static final String TAG = "MainActivity";
@@ -26,7 +34,6 @@ public class MainActivity extends Activity {
                     .commit();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,6 +59,18 @@ public class MainActivity extends Activity {
 
     public void submit(View view) {
         Log.v(TAG, "Submit!");
+        SaguaroApi api = SaguaroApiClient.getClient();
+        api.getMeal(500, "Taco Bell", new Callback<MealResponse>() {
+            @Override
+            public void success(MealResponse mealResponse, Response response) {
+                Log.v(TAG, "Successful response!");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e(TAG, "Failed to get a response",  error);
+            }
+        });
     }
 
     /**
