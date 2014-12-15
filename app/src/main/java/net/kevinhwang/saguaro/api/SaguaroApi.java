@@ -16,5 +16,5 @@ import retrofit.http.Query;
 public interface SaguaroApi {
 
     @GET("/meal")
-    void getMeal(@Query("money") Integer money, @Query("source") String source, Callback<List<MealResponse>> callback);
+    void getMeal(@Query("money") Integer money, @Query("source") String source, Callback<List<Food>> callback);
 }

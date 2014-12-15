@@ -13,6 +13,7 @@ import android.os.Build;
 import android.util.Log;
 import java.util.List;
 
+import net.kevinhwang.saguaro.models.Food;
 import net.kevinhwang.saguaro.api.MealResponse;
 import net.kevinhwang.saguaro.api.SaguaroApi;
 import net.kevinhwang.saguaro.api.SaguaroApiClient;
@@ -61,9 +62,9 @@ public class MainActivity extends Activity {
     public void submit(View view) {
         Log.v(TAG, "Submit!");
         SaguaroApi api = SaguaroApiClient.getClient();
-        api.getMeal(500, "Taco Bell", new Callback<List<MealResponse>>() {
+        api.getMeal(500, "Taco Bell", new Callback<List<Food>>() {
             @Override
-            public void success(List<MealResponse> mealResponses, Response response) {
+            public void success(List<Food> food, Response response) {
                 Log.v(TAG, "Successful response!");
             }
 
