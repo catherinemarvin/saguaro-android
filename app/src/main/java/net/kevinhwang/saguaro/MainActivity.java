@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.util.Log;
+import java.util.List;
 
 import net.kevinhwang.saguaro.api.MealResponse;
 import net.kevinhwang.saguaro.api.SaguaroApi;
@@ -60,15 +61,15 @@ public class MainActivity extends Activity {
     public void submit(View view) {
         Log.v(TAG, "Submit!");
         SaguaroApi api = SaguaroApiClient.getClient();
-        api.getMeal(500, "Taco Bell", new Callback<MealResponse>() {
+        api.getMeal(500, "Taco Bell", new Callback<List<MealResponse>>() {
             @Override
-            public void success(MealResponse mealResponse, Response response) {
+            public void success(List<MealResponse> mealResponses, Response response) {
                 Log.v(TAG, "Successful response!");
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Log.e(TAG, "Failed to get a response",  error);
+                Log.e(TAG, "Failed to get a response", error);
             }
         });
     }
