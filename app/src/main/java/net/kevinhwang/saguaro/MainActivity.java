@@ -11,14 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.kevinhwang.saguaro.models.Food;
 import net.kevinhwang.saguaro.api.MealResponse;
 import net.kevinhwang.saguaro.api.SaguaroApi;
 import net.kevinhwang.saguaro.api.SaguaroApiClient;
+import net.kevinhwang.saguaro.lists.FoodAdapter;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -27,6 +31,8 @@ import retrofit.client.Response;
 
 public class MainActivity extends Activity {
     private static final String TAG = "MainActivity";
+    private ListView foodList;
+    private ArrayAdapter<Food> foodAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,10 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        this.foodList = (ListView) findViewById(R
+                .id.food_list_view);
+        this.foodAdapter = new FoodAdapter(this, R.layout.food_item);
+        this.foodList.setAdapter(this.foodAdapter);
     }
 
     @Override
