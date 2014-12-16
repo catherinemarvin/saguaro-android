@@ -40,7 +40,7 @@ public class FoodAdapter extends ArrayAdapter<Food> {
 
         // Populate data
         foodName.setText(food.getName());
-        foodCalories.setText(food.getCalories());
+        foodCalories.setText(food.getCalories().toString());
 
         return convertView;
     }
