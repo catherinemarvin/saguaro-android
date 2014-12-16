@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
         SaguaroApi api = SaguaroApiClient.getClient();
 
         EditText moneyField = (EditText) findViewById(R.id.total_money);
-        Integer money = Integer.parseInt(moneyField.getText().toString());
+        Integer money = Integer.parseInt(moneyField.getText().toString()) * 100; // dollars -> cents
         api.getMeal(money, "Taco Bell", new Callback<List<Food>>() {
             @Override
             public void success(List<Food> food, Response response) {
