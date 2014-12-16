@@ -82,7 +82,11 @@ public class MainActivity extends Activity {
             public void success(List<Food> food, Response response) {
                 Log.v(TAG, "Successful response!");
                 Log.v(TAG, food.toString());
+                foodAdapter.clear();
+                foodAdapter.addAll(food);
+                foodAdapter.notifyDataSetChanged();
             }
+
 
             @Override
             public void failure(RetrofitError error) {
