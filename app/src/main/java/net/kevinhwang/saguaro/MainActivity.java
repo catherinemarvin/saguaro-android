@@ -43,10 +43,10 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-//        this.foodList = (ListView) findViewById(R
-//                .id.food_list_view);
-//        this.foodAdapter = new FoodAdapter(this, R.layout.food_item);
-//        this.foodList.setAdapter(this.foodAdapter);
+        this.foodList = (ListView) findViewById(R
+                .id.food_list_view);
+        this.foodAdapter = new FoodAdapter(this, R.layout.food_item);
+        this.foodList.setAdapter(this.foodAdapter);
     }
 
     @Override
