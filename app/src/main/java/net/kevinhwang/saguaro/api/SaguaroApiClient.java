@@ -14,7 +14,7 @@ public class SaguaroApiClient {
 
     private static final Object INSTANCE_LOCK = new Object();
     private static SaguaroApi SHARED_INSTANCE;
-    private static final String ENDPOINT = "https://hidden-river-2667.herokuapp.com/api/v1";
+    private static final String ENDPOINT = "http://hidden-river-2667.herokuapp.com/api/v1";
 
     public static SaguaroApi getClient() {
         if (SHARED_INSTANCE == null) {
